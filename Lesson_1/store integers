@@ -1,0 +1,13 @@
+.data
+    .word 7
+    .word -11
+    .word 0
+
+.text
+    lui x10, 0x10010    # in this way, x10 <- 0x10010000
+    lw x11, 0(x10)        # load the first word into x11
+    lw x12, 4(x10)        # load the second word into x12
+    add x11, x11, x12    # sum up the two numbers
+    sw x11, 8(x10)        # save into the memory the sum
+    ori x17, x0, 10        # exit()
+    ecall
